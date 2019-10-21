@@ -186,9 +186,10 @@ namespace COD4
 				Thread::Sleep(5000);
 			else
 			{
-				float vel;
-				ReadProcessMemory(cod4, reinterpret_cast<PVOID>(0x8C9D74), &vel, sizeof(vel), nullptr);
-				Velocity = vel;
+				float x, y;
+				ReadProcessMemory(cod4, reinterpret_cast<PVOID>(0x79449C), &x, sizeof(x), nullptr);
+				ReadProcessMemory(cod4, reinterpret_cast<PVOID>(0x7944A0), &y, sizeof(y), nullptr);
+				Velocity = (float)Math::Sqrt((x * x) + (y * y));
 				Invalidate();
 			}
 			Thread::Sleep(50);
