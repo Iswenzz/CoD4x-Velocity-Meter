@@ -6,7 +6,6 @@ Utility app to show player's velocity in real time on all CoD4x servers.
 
 ## Features
 
-* Show spectated player's velocity aswell
 * Change background color
 * Transparency
 * Always on top option
