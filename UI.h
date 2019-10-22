@@ -21,6 +21,7 @@ namespace COD4
 	{
 		public:
 			property Color AppBackColor;
+			property Color AppForeColor;
 			property float Velocity;
 
 			/// <summary>
@@ -53,7 +54,7 @@ namespace COD4
 			void UI_MouseUp(Object ^sender, MouseEventArgs ^e);
 			void UI_MouseMove(Object ^sender, MouseEventArgs ^e);
 			void AlwaysOnTopButton_CheckedChanged(Object ^sender, EventArgs ^e);
-			void BackgroundColorButton_Click(Object ^sender, EventArgs ^e);
+			void ColorButton_Click(Object ^sender, EventArgs ^e);
 			void ExitButton_Click(Object ^sender, EventArgs ^e);
 			void TransparencyButton_Click(Object ^sender, EventArgs ^e);
 
@@ -91,6 +92,7 @@ namespace COD4
 			System::Windows::Forms::ToolStripSeparator^ toolStripSeparator1;
 			System::Windows::Forms::ToolStripMenuItem^ ExitButton;
 			System::Windows::Forms::ToolStripMenuItem^ TransparencyButton;
+			System::Windows::Forms::ToolStripMenuItem^  ForegroundColorButton;
 			System::ComponentModel::IContainer^ components;
 
 			#pragma region Windows Form Designer generated code
@@ -104,6 +106,7 @@ namespace COD4
 				System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(UI::typeid));
 				this->AppContextMenu = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 				this->BackgroundColorButton = (gcnew System::Windows::Forms::ToolStripMenuItem());
+				this->ForegroundColorButton = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				this->TransparencyButton = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				this->AlwaysOnTopButton = (gcnew System::Windows::Forms::ToolStripMenuItem());
 				this->toolStripSeparator1 = (gcnew System::Windows::Forms::ToolStripSeparator());
@@ -114,12 +117,12 @@ namespace COD4
 				// AppContextMenu
 				// 
 				this->AppContextMenu->ImageScalingSize = System::Drawing::Size(20, 20);
-				this->AppContextMenu->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+				this->AppContextMenu->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
 					this->BackgroundColorButton,
-						this->TransparencyButton, this->AlwaysOnTopButton, this->toolStripSeparator1, this->ExitButton
+						this->ForegroundColorButton, this->TransparencyButton, this->AlwaysOnTopButton, this->toolStripSeparator1, this->ExitButton
 				});
 				this->AppContextMenu->Name = L"AppContextMenu";
-				this->AppContextMenu->Size = System::Drawing::Size(217, 114);
+				this->AppContextMenu->Size = System::Drawing::Size(217, 140);
 				// 
 				// BackgroundColorButton
 				// 
@@ -129,7 +132,17 @@ namespace COD4
 				this->BackgroundColorButton->Name = L"BackgroundColorButton";
 				this->BackgroundColorButton->Size = System::Drawing::Size(216, 26);
 				this->BackgroundColorButton->Text = L"Background color";
-				this->BackgroundColorButton->Click += gcnew System::EventHandler(this, &UI::BackgroundColorButton_Click);
+				this->BackgroundColorButton->Click += gcnew System::EventHandler(this, &UI::ColorButton_Click);
+				// 
+				// ForegroundColorButton
+				// 
+				this->ForegroundColorButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(40)),
+					static_cast<System::Int32>(static_cast<System::Byte>(40)), static_cast<System::Int32>(static_cast<System::Byte>(40)));
+				this->ForegroundColorButton->ForeColor = System::Drawing::Color::Gainsboro;
+				this->ForegroundColorButton->Name = L"ForegroundColorButton";
+				this->ForegroundColorButton->Size = System::Drawing::Size(216, 26);
+				this->ForegroundColorButton->Text = L"Foreground color";
+				this->ForegroundColorButton->Click += gcnew System::EventHandler(this, &UI::ColorButton_Click);
 				// 
 				// TransparencyButton
 				// 

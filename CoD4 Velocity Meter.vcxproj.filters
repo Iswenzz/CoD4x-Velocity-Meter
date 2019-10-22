@@ -19,6 +19,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Settings.h" />
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Program.cpp">
@@ -37,8 +40,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="C:\Users\Wenzz\Desktop\app.ico">
+    <Image Include="app.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

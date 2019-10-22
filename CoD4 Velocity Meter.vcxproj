@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="UI.h">
       <FileType>CppForm</FileType>
@@ -161,7 +162,10 @@
     <EmbeddedResource Include="UI.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="C:\Users\Wenzz\Desktop\app.ico" />
+    <Image Include="app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

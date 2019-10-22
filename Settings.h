@@ -50,6 +50,21 @@
 			[::System::Configuration::UserScopedSettingAttribute()]
 			[::System::Diagnostics::DebuggerNonUserCodeAttribute()]
 			[::System::Configuration::DefaultSettingValueAttribute("")]
+			property ::System::String ^AppForeColor
+			{
+				::System::String^ get()
+				{
+					return ((::System::String ^)(this["AppForeColor"]));
+				}
+				void set(::System::String ^value)
+				{
+					this["AppForeColor"] = value;
+				}
+			}
+
+			[::System::Configuration::UserScopedSettingAttribute()]
+			[::System::Diagnostics::DebuggerNonUserCodeAttribute()]
+			[::System::Configuration::DefaultSettingValueAttribute("")]
 			property ::System::String ^AppSize
 			{
 				::System::String^ get()

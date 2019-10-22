@@ -27,13 +27,15 @@ namespace COD4
 		drawFormat->Alignment = StringAlignment::Center;
 		drawFormat->LineAlignment = StringAlignment::Near;
 
+		Color fcolor = AppForeColor.IsEmpty ? Color::Gainsboro : AppForeColor;
 		float fontSize = Math::Sqrt(Size.Height * Size.Height) / 2;
 		System::Drawing::Font ^font = gcnew System::Drawing::Font(Font->FontFamily, fontSize);
-		
+		System::Drawing::SolidBrush ^forecolor = gcnew System::Drawing::SolidBrush(fcolor);
+
 		e->Graphics->InterpolationMode = InterpolationMode::HighQualityBilinear;
 		e->Graphics->SmoothingMode = SmoothingMode::HighQuality;
 		e->Graphics->TextRenderingHint = System::Drawing::Text::TextRenderingHint::ClearTypeGridFit;
-		e->Graphics->DrawString(Velocity.ToString("0"), font, Brushes::Gainsboro, DisplayRectangle, drawFormat);
+		e->Graphics->DrawString(Velocity.ToString("0"), font, forecolor, DisplayRectangle, drawFormat);
 	}
 
 	void UI::WndProc(Message %msg)
@@ -64,6 +66,7 @@ namespace COD4
 		Settings::Default->AlwaysOnTop = AlwaysOnTopButton->Checked.ToString();
 		Settings::Default->AppTransparency = TransparencyButton->Checked.ToString();
 		Settings::Default->AppBackColor = AppBackColor.ToArgb().ToString();
+		Settings::Default->AppForeColor = AppForeColor.ToArgb().ToString();
 		Settings::Default->AppSize = Size.Width + " " + Size.Height;
 		Settings::Default->AppLocation = Location.X + " " + Location.Y;
 		Settings::Default->Save();
@@ -86,6 +89,8 @@ namespace COD4
 				if (!TransparencyButton->Checked)
 					BackColor = AppBackColor;
 			}
+			if (!String::IsNullOrEmpty(Settings::Default->AppForeColor))
+				AppForeColor = Color::FromArgb(Convert::ToInt32(Settings::Default->AppForeColor));
 			if (!String::IsNullOrEmpty(Settings::Default->AppSize))
 			{
 				array<String ^> ^location = Settings::Default->AppSize->Split(' ');
@@ -122,14 +127,25 @@ namespace COD4
 		catch (Exception ^e) { }
 	}
 	
-	void UI::BackgroundColorButton_Click(Object ^sender, EventArgs ^e)
+	void UI::ColorButton_Click(Object ^sender, EventArgs ^e)
 	{
 		ColorDialog ^dialog = gcnew ColorDialog();
 		if (dialog->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 		{
-			AppBackColor = dialog->Color;
-			if (!TransparencyButton->Checked)
-				BackColor = AppBackColor;
+			if (ToolStripMenuItem ^item = dynamic_cast<ToolStripMenuItem ^>(sender))
+			{
+				String ^controlName = item->Name;
+				if (controlName->Equals("BackgroundColorButton"))
+				{
+					AppBackColor = dialog->Color;
+					if (!TransparencyButton->Checked)
+						BackColor = AppBackColor;
+				}
+				else if (controlName->Equals("ForegroundColorButton"))
+					AppForeColor = dialog->Color;
+
+				Invalidate();
+			}
 		}
 	}
 
