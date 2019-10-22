@@ -78,6 +78,8 @@ namespace COD4
 		{
 			if (!String::IsNullOrEmpty(Settings::Default->AlwaysOnTop))
 				TopMost = Convert::ToBoolean(Settings::Default->AlwaysOnTop);
+			else
+				TopMost = true;
 			if (!String::IsNullOrEmpty(Settings::Default->AppTransparency))
 			{
 				TransparencyButton->Checked = Convert::ToBoolean(Settings::Default->AppTransparency);
