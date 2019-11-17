@@ -209,7 +209,6 @@ namespace COD4
 				this->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &UI::UI_MouseUp);
 				this->AppContextMenu->ResumeLayout(false);
 				this->ResumeLayout(false);
-
 			}
 			#pragma endregion
 	};
