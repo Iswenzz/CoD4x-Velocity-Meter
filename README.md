@@ -5,7 +5,11 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/iswenzz/cod4x-velocity-meter/badge)](https://www.codefactor.io/repository/github/iswenzz/cod4x-velocity-meter)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Utility app to show player's velocity in real time on all CoD4x servers.
+This program calculates the active player's velocity in real time, and displays it to the application window. Velocity is calculated by using the following formula: 
+
+![](https://www.gstatic.com/education/formulas/images_long_sheet/en/distance_formula.svg)
+
+To explain this a bit: The image above is the geometrical formula for distance between 2 points. We store this value in a class property, and update it every 50 milliseconds, therefore giving us Velocity, which is measured in distance per time.
 
 ![](https://i.imgur.com/yTMBhpZ.png)
 
