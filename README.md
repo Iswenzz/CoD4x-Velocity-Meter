@@ -14,9 +14,19 @@ To explain this a bit: The image above is the geometrical formula for distance b
 ![](https://i.imgur.com/yTMBhpZ.png)
 
 ## Features
-
 * Show spectated player's velocity
 * Change background color
 * Change foreground color
 * Transparency
 * Always on top option
+
+## Instructions
+In order to use this application, just download the archived file down below, and extract it to any destination. You can create a shortcut of the executable file and place it anywhere, and run it from said shortcut.
+
+## Building
+1. [Visual Studio](https://visualstudio.microsoft.com/)
+
+### [Download](https://github.com/Iswenzz/SR-App/releases)
+
+## Contributors:
+***Note:*** If you would like to contribute to this repository, feel free to send a pull request, and I will review your code. Also feel free to post about any problems that may arise in the issues section of the repository.
